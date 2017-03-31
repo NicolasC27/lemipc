@@ -5,30 +5,34 @@
 ## Login   <cheval_8@epitech.net>
 ##
 ## Started on  Wed Feb 24 16:02:04 2016 Chevalier Nicolas
-## Last update Fri May 27 22:52:50 2016 Nicolas Chevalier
+## Last update Fri Mar 31 17:25:31 2017 Boris ROUGAGNOU
 ##
 
+CC		= gcc
 
-NAME		=	lemipc
+NAME		= lemipc
 
-SRC		= 	srcs/main.c
+SRC		= srcs/main.c	\
+		  srcs/init.c	\
+		  srcs/usage.c
 
-MOD		=	$(SRC:.c=.o)
+OBJ		= $(SRC:.c=.o)
 
-CFLAGS		=	-Iincludes/
+CFLAGS		= -W -Wall -Wextra -I./includes/
 
+RM		= rm -f
 
-all:		$(NAME)
+all: $(NAME)
 
-$(NAME):	$(MOD)
-		@cc $(MOD) -o $(NAME)
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
 
-clean		:
-		 rm -rf $(MOD)
+clean:
+	 $(RM) $(MOD)
 
-fclean		: clean
-		  rm -rf $(NAME)
+fclean: clean
+	 $(RM) $(NAME)
 
-re:		fclean all
+re:	fclean all
 
-.PHONY:		all clean fclean re
+.PHONY:	all clean fclean re
