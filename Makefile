@@ -5,10 +5,10 @@
 ## Login   <cheval_8@epitech.net>
 ##
 ## Started on  Wed Feb 24 16:02:04 2016 Chevalier Nicolas
-## Last update Sun Apr  2 23:22:46 2017 Nicolas
+## Last update Sun Apr  2 23:44:08 2017 Boris ROUGAGNOU
 ##
 
-CXX		= gcc
+CC		= gcc
 
 NAME		= lemipc
 
