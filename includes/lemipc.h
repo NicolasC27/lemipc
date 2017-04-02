@@ -11,31 +11,73 @@
 #ifndef LEMIPC_H_
 # define LEMIPC_H_
 
-# define RETURN_ERROR	84
-# define SIZE_SHM	100
-# define MAP_X		10
-# define MAP_Y		10
+#include <sys/ipc.h>
+#include <stdbool.h>
 
-typedef struct		s_ipc
-{
-  int			player;
-  int			pos;
-  int			id;
-  bool			first;
-  char			*path_key;
-  key_t			key;
-  int			shm_id;
-  int			sem_id;
-  char			*map;
-  int			position;
-  int			msg_id;
-  int			alive;
-}			t_ipc;
+# define RETURN_ERROR        84
+# define FALSE                -1
+# define TRUE                1
+# define MAP_X                10
+# define MAP_Y                10
 
-typedef struct		s_msg
+typedef enum direction
 {
-  long			mtype;
-  char			str[10];
-}			t_msg;
+  LEFT,
+  RIGHT,
+  UP,
+  DOWN
+} t_direction;
+
+typedef struct s_ipc
+{
+  int win;
+  char *path_key;
+  char *map;
+  int player;
+  int pos;
+  int id;
+  int shm_id;
+  int sem_id;
+  int position;
+  int msg_id;
+  int alive;
+  int ennemy;
+  t_direction move;
+  bool first;
+  key_t key;
+} t_ipc;
+
+typedef struct s_msg
+{
+  long mtype;
+  char str[10];
+} t_msg;
+
+
+int movePlayer(t_ipc *, int, int, int);
+
+int moveCalculDirection(int, t_direction);
+
+void moveRandom(t_ipc *);
+
+int checkAround(t_ipc *pIpc, int x, int y);
+
+void ia(t_ipc *);
+
+void lock(int);
+
+void unlock(int);
+
+t_ipc *create_map(char *, char *);
+
+void display_game(t_ipc *pIpc);
+
+int usage();
+
+void move(t_ipc *pIpc);
+
+void chooseDirection(t_ipc *pIpc);
+
+bool check_ennemy(t_ipc *pIpc);
 
 #endif /* !LEMIPC_H_ */

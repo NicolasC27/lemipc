@@ -8,31 +8,37 @@
 ## Last update Fri Mar 31 17:25:31 2017 Boris ROUGAGNOU
 ##
 
-CC		= gcc
+CXX		= gcc -g
 
 NAME		= lemipc
 
-SRC		= srcs/main.c	\
-		  srcs/init.c	\
-		  srcs/usage.c
+SRC		= srcs/main.c \
+		  srcs/check.c \
+		  srcs/move.c \
+		  srcs/lock.c \
+		  srcs/ia.c \
+		  srcs/init.c \
+		  srcs/usage.c \
+		  srcs/display.c \
+		  srcs/choose.c
 
 OBJ		= $(SRC:.c=.o)
 
-CFLAGS		= -W -Wall -Wextra -I./includes/
+CFLAGS	= -W -Wall -Wextra -I./includes
 
 RM		= rm -f
 
-all: $(NAME)
+$(NAME):	$(OBJ)
+		$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+all:		$(NAME)
 
 clean:
-	 $(RM) $(MOD)
+		$(RM) $(OBJ)
 
-fclean: clean
-	 $(RM) $(NAME)
+fclean:		clean
+		$(RM) $(NAME)
 
-re:	fclean all
+re:		fclean all
 
-.PHONY:	all clean fclean re
+.PHONY: all clean fclean re
