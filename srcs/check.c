@@ -5,15 +5,15 @@
 ** Login   <nicolas1.chevalier@epitech.eu>
 ** 
 ** Started on  Sun Apr  2 22:39:31 2017 Nicolas
-** Last update Sun Apr  2 22:45:38 2017 Nicolas
+** Last update Sun Apr  2 23:34:56 2017 Boris ROUGAGNOU
 */
 
 #include <stdio.h>
-#include "../includes/lemipc.h"
+#include "lemipc.h"
 
-int get_team(t_ipc *ipc, int x, int y)
+int	get_team(t_ipc *ipc, int x, int y)
 {
-  int tmp;
+  int	tmp;
 
   if (y < 0 || x < 0 || y > 9)
     return (FALSE);
@@ -23,11 +23,11 @@ int get_team(t_ipc *ipc, int x, int y)
   return (tmp);
 }
 
-bool check_ennemy(t_ipc *pIpc)
+bool	check_ennemy(t_ipc *pIpc)
 {
-  int i;
-  int y;
-  int tmp;
+  int	i;
+  int	y;
+  int	tmp;
 
   i = 0;
   while (i < 100)
@@ -50,10 +50,10 @@ bool check_ennemy(t_ipc *pIpc)
   return (false);
 }
 
-int checkAround(t_ipc *pIpc, int x, int y)
+int	checkAround(t_ipc *pIpc, int x, int y)
 {
-  int enemy;
-  int team_around;
+  int	enemy;
+  int	team_around;
 
   enemy = 0;
   team_around = 0;
@@ -71,4 +71,3 @@ int checkAround(t_ipc *pIpc, int x, int y)
     enemy += 1;
   return (enemy);
 }
-

@@ -5,16 +5,16 @@
 ** Login   <nicolas1.chevalier@epitech.eu>
 ** 
 ** Started on  Sun Apr  2 22:39:48 2017 Nicolas
-** Last update Sun Apr  2 22:39:48 2017 Nicolas
+** Last update Sun Apr  2 23:37:37 2017 Boris ROUGAGNOU
 */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/msg.h>
 #include <string.h>
-#include "../includes/lemipc.h"
+#include "lemipc.h"
 
-bool is_here(char *map, int enemy, int team)
+bool	is_here(char *map, int enemy, int team)
 {
   if (enemy == 0)
     return (false);
@@ -25,9 +25,9 @@ bool is_here(char *map, int enemy, int team)
   return (false);
 }
 
-bool communication(t_ipc *pIpc, int val)
+bool	communication(t_ipc *pIpc, int val)
 {
-  t_msg msg;
+  t_msg	msg;
 
   msg.mtype = pIpc->id;
   val = msgrcv(pIpc->msg_id, &msg, sizeof(msg), pIpc->id, IPC_NOWAIT);
@@ -50,7 +50,7 @@ bool communication(t_ipc *pIpc, int val)
   return (true);
 }
 
-void ia(t_ipc *pIpc)
+void	ia(t_ipc *pIpc)
 {
   if (pIpc->alive == 1)
     {

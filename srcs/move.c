@@ -5,14 +5,14 @@
 ** Login   <nicolas1.chevalier@epitech.eu>
 ** 
 ** Started on  Sun Apr  2 22:39:24 2017 Nicolas
-** Last update Sun Apr  2 22:40:27 2017 Nicolas
+** Last update Sun Apr  2 23:39:50 2017 Boris ROUGAGNOU
 */
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "../includes/lemipc.h"
+#include "lemipc.h"
 
-int movePlayer(t_ipc *pIpc, int position, int new_position, int id)
+int	movePlayer(t_ipc *pIpc, int position, int new_position, int id)
 {
   if (new_position < 0 || new_position == 0 ||
       ((new_position % MAP_X) == 9 && (position % MAP_X) == 0) ||
@@ -29,7 +29,7 @@ int movePlayer(t_ipc *pIpc, int position, int new_position, int id)
   return (0);
 }
 
-int moveCalculDirection(int position, t_direction direction)
+int	moveCalculDirection(int position, t_direction direction)
 {
   if (direction == UP)
     return position - 10;
@@ -45,7 +45,7 @@ int moveCalculDirection(int position, t_direction direction)
   return (0);
 }
 
-void moveRandom(t_ipc *pIpc)
+void	moveRandom(t_ipc *pIpc)
 {
   int pos;
 
@@ -59,7 +59,7 @@ void moveRandom(t_ipc *pIpc)
     }
 }
 
-void move(t_ipc *pIpc)
+void	move(t_ipc *pIpc)
 {
   chooseDirection(pIpc);
   if ((movePlayer(pIpc, pIpc->position,

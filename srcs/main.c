@@ -5,7 +5,7 @@
 ** Login   <nicolas1.chevalier@epitech.eu>
 ** 
 ** Started on  Mon Mar 27 16:16:58 2017 Nicolas
-** Last update Sun Apr  2 22:40:54 2017 Nicolas
+** Last update Sun Apr  2 23:41:00 2017 Boris ROUGAGNOU
 */
 
 #include <stdio.h>
@@ -17,11 +17,11 @@
 #include <sys/msg.h>
 #include <signal.h>
 #include <unistd.h>
-#include "../includes/lemipc.h"
+#include "lemipc.h"
 
-void delete(t_ipc *pIpc)
+void	delete(t_ipc *pIpc)
 {
-  static t_ipc *sig;
+  static t_ipc	*sig;
 
   if (sig)
     {
@@ -38,14 +38,14 @@ void delete(t_ipc *pIpc)
   sig = pIpc;
 }
 
-void destroy_game(int sig)
+void	destroy_game(int sig)
 {
   (void) sig;
   delete((t_ipc *) 0);
   exit(0);
 }
 
-bool game_end(t_ipc *pIpc)
+bool	game_end(t_ipc *pIpc)
 {
   if (pIpc->alive == 0 || pIpc->win >= 5)
     return (true);
@@ -55,7 +55,7 @@ bool game_end(t_ipc *pIpc)
   return (true);
 }
 
-void start_game(t_ipc *pIpc)
+void	start_game(t_ipc *pIpc)
 {
   while (!game_end(pIpc))
     {
@@ -67,9 +67,9 @@ void start_game(t_ipc *pIpc)
     }
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-  t_ipc *game;
+  t_ipc	*game;
 
   signal(SIGINT, destroy_game);
   if (argc != 3)

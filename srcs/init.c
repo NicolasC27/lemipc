@@ -5,7 +5,7 @@
 ** Login   <rougag_b@epitech.net>
 ** 
 ** Started on  Fri Mar 31 15:47:31 2017 Boris ROUGAGNOU
-** Last update Sun Apr  2 22:42:06 2017 Nicolas
+** Last update Sun Apr  2 23:38:43 2017 Boris ROUGAGNOU
 */
 
 #include <stdlib.h>
@@ -14,12 +14,9 @@
 #include <stdio.h>
 #include <sys/sem.h>
 #include <sys/msg.h>
-#include "../includes/lemipc.h"
+#include "lemipc.h"
 
-/*
-** inititialisation du tmp de create_map
-*/
-t_ipc *init_tmp(t_ipc *tmp, char *path_key, char *nb_team)
+t_ipc	*init_tmp(t_ipc *tmp, char *path_key, char *nb_team)
 {
   if ((tmp = malloc(sizeof(t_ipc))) == NULL)
     return (NULL);
@@ -31,27 +28,20 @@ t_ipc *init_tmp(t_ipc *tmp, char *path_key, char *nb_team)
   return (tmp);
 }
 
-/*
-** SI tmp->shm_id PAS -1
-*/ 
-t_ipc *init_tmp_shm(t_ipc *tmp)
+t_ipc	*init_tmp_shm(t_ipc *tmp)
 {
   tmp->first = false;
   printf("Using");
   tmp->player += 1;
   tmp->map = shmat(tmp->shm_id, NULL, SHM_R | SHM_W);
   tmp->sem_id = semget(tmp->key, 1, SHM_R | SHM_W);
-  // semctl(tmp->sem_id, 0, IPC_RMID);
   tmp->msg_id = msgget(tmp->key, SHM_R | SHM_W);
   printf("\nUsing msgq %d\n", tmp->msg_id);
   tmp->map = shmat(tmp->shm_id, NULL, SHM_R | SHM_W);
   return (tmp);
 }
 
-/*
-** SI tmp->shm_id == -1 
-*/
-t_ipc *init_tmp_noshm(t_ipc *tmp)
+t_ipc	*init_tmp_noshm(t_ipc *tmp)
 {
   tmp->first = true;
   tmp->player = 1;
@@ -66,11 +56,11 @@ t_ipc *init_tmp_noshm(t_ipc *tmp)
   return (tmp);
 }
 
-int players_board(t_ipc *pIpc)
+int	players_board(t_ipc *pIpc)
 {
-  int i;
-  int y;
-  int players;
+  int	i;
+  int	y;
+  int	players;
 
   i = 0;
   players = 0;
@@ -88,9 +78,9 @@ int players_board(t_ipc *pIpc)
   return (players);
 }
 
-t_ipc *create_map(char *path_key, char *nb_team)
+t_ipc	*create_map(char *path_key, char *nb_team)
 {
-  t_ipc *tmp;
+  t_ipc	*tmp;
 
   tmp = NULL;
   tmp = init_tmp(tmp, path_key, nb_team);

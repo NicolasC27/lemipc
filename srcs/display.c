@@ -5,17 +5,17 @@
 ** Login   <nicolas1.chevalier@epitech.eu>
 ** 
 ** Started on  Sun Apr  2 22:38:56 2017 Nicolas
-** Last update Sun Apr  2 22:38:56 2017 Nicolas
+** Last update Sun Apr  2 23:36:34 2017 Boris ROUGAGNOU
 */
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "../includes/lemipc.h"
+#include "lemipc.h"
 
-void display_game(t_ipc *pIpc)
+void	display_game(t_ipc *pIpc)
 {
-  int i;
-  int y;
+  int	i;
+  int	y;
 
   i = 0;
   system("clear");

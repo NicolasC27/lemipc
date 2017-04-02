@@ -5,18 +5,18 @@
 ** Login   <nicolas1.chevalier@epitech.eu>
 ** 
 ** Started on  Sun Apr  2 22:39:35 2017 Nicolas
-** Last update Sun Apr  2 22:39:40 2017 Nicolas
+** Last update Sun Apr  2 23:33:59 2017 Boris ROUGAGNOU
 */
 
 #include <stdlib.h>
 #include <stdio.h>
-#include "../includes/lemipc.h"
+#include "lemipc.h"
 
-void chooseDirection(t_ipc *pIpc)
+void	chooseDirection(t_ipc *pIpc)
 {
-  int x;
-  int y;
-  int nb;
+  int	x;
+  int	y;
+  int	nb;
 
   x = (pIpc->ennemy % MAP_X) - (pIpc->position % MAP_X);
   y = (pIpc->ennemy / MAP_X) - (pIpc->position / MAP_Y);
@@ -38,4 +38,3 @@ void chooseDirection(t_ipc *pIpc)
 	  pIpc->move = RIGHT;
     }
 }
-
