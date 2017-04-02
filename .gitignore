@@ -8,3 +8,4 @@ Supprimerait CMakeLists.txt
 Supprimerait cmake-build-debug/
 Supprimerait lemipc
 Supprimerait srcs/main.o
+Supprimerait a.out

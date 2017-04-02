@@ -5,10 +5,10 @@
 ## Login   <cheval_8@epitech.net>
 ##
 ## Started on  Wed Feb 24 16:02:04 2016 Chevalier Nicolas
-## Last update Fri Mar 31 17:25:31 2017 Boris ROUGAGNOU
+## Last update Sun Apr  2 23:22:46 2017 Nicolas
 ##
 
-CXX		= gcc -g
+CXX		= gcc
 
 NAME		= lemipc
 
@@ -24,7 +24,7 @@ SRC		= srcs/main.c \
 
 OBJ		= $(SRC:.c=.o)
 
-CFLAGS	= -W -Wall -Wextra -I./includes
+CFLAGS	= 	-W -Wall -Wextra -I./includes
 
 RM		= rm -f
 
