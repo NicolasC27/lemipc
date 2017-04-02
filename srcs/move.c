@@ -5,7 +5,7 @@
 ** Login   <nicolas1.chevalier@epitech.eu>
 ** 
 ** Started on  Sun Apr  2 22:39:24 2017 Nicolas
-** Last update Sun Apr  2 23:39:50 2017 Boris ROUGAGNOU
+** Last update Sun Apr  2 23:43:51 2017 Nicolas
 */
 
 #include <stdio.h>
@@ -32,16 +32,16 @@ int	movePlayer(t_ipc *pIpc, int position, int new_position, int id)
 int	moveCalculDirection(int position, t_direction direction)
 {
   if (direction == UP)
-    return position - 10;
+    return (position - 10);
   else
     if (direction == DOWN)
-      return position + 10;
+      return (position + 10);
     else
       if (direction == LEFT)
-	return position - 1;
+	return (position - 1);
       else
 	if (direction == RIGHT)
-	  return position + 1;
+	  return (position + 1);
   return (0);
 }
 
