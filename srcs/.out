@@ -1,8 +1,0 @@
-int	usage()
-{
-  fprintf(stderr, "Usage: ./lemipc path_to_key team_number\n\n");
-  fprintf(stderr, "path_to_key is a valid path that will be used by ftok\n");
-  fprintf(stderr,
-	  "team_number is the team number assigned to the current player\n");
-  return (0);
-}
